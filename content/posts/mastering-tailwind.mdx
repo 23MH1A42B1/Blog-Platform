@@ -1,0 +1,30 @@
+---
+title: "Mastering Tailwind CSS"
+date: "2026-03-14T09:30:00Z"
+description: "Learn how to build modern, responsive layouts effortlessly using Tailwind CSS."
+---
+
+Tailwind CSS has revolutionized the way we style web applications. Instead of writing custom CSS, you use utility classes directly in your markup.
+
+## Key Benefits
+
+1. **No context switching:** You don't have to leave your HTML/JSX to write CSS.
+2. **Highly customizable:** The Tailwind configuration file lets you tweak everything.
+3. **Small production builds:** PurgeCSS ensures only the classes you use are included in your final CSS file.
+
+### Example
+
+Here's how you might create a simple card component:
+
+```html
+<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white dark:bg-gray-800">
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2 text-gray-900 dark:text-white">The Coldest Sunset</div>
+    <p class="text-gray-700 dark:text-gray-300 text-base">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    </p>
+  </div>
+</div>
+```
+
+With dark mode enabled, switching styles is as easy as adding the `dark:` prefix!
