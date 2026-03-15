@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  --color-border: var(--border);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+}
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+  }
+
+  .dark {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+
+  /* Make sure html and body carry the classes */
+  html, body {
+    @apply bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-200;
+  }
+}
+
+/* Specific Prism.js / Syntax Highlighting Overrides if needed, currently using Tailwind classes for basic styling */
