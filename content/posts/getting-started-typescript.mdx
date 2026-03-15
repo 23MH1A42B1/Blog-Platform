@@ -1,0 +1,53 @@
+---
+title: "Getting Started with TypeScript"
+date: "2026-03-10T08:00:00Z"
+description: "A practical introduction to TypeScript for JavaScript developers. Learn types, interfaces, and why TypeScript is worth it."
+---
+
+TypeScript is a strongly typed superset of JavaScript that compiles to plain JavaScript. It adds optional static typing and class-based object-oriented programming to the language.
+
+## Why Use TypeScript?
+
+- **Catch bugs early**: Type errors are flagged at compile time, not runtime.
+- **Better IDE support**: Autocomplete, refactoring, and navigation work much better.
+- **Scales well**: Large codebases become much more manageable.
+
+## Basic Types
+
+```typescript
+let name: string = "Alice";
+let age: number = 30;
+let isActive: boolean = true;
+let items: string[] = ["apple", "banana", "cherry"];
+```
+
+## Interfaces
+
+Interfaces let you define the shape of an object:
+
+```typescript
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  role?: "admin" | "editor" | "viewer"; // optional field
+}
+
+function greetUser(user: User): string {
+  return `Hello, ${user.name}!`;
+}
+```
+
+## Generics
+
+Generics allow you to write reusable, type-safe functions:
+
+```typescript
+function getFirst<T>(arr: T[]): T {
+  return arr[0];
+}
+
+const first = getFirst<number>([1, 2, 3]); // returns 1
+```
+
+TypeScript's learning curve is gentle, and the productivity gains for any serious project are well worth it!

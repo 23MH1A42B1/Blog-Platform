@@ -1,0 +1,72 @@
+---
+title: "React Hooks Explained"
+date: "2026-03-09T10:00:00Z"
+description: "Master the most important React Hooks: useState, useEffect, useContext, and custom hooks."
+---
+
+React Hooks were introduced in React 16.8 and completely changed how we write React components. They let you use state and other React features without writing a class component.
+
+## useState
+
+The most basic hook — it lets you add state to a functional component:
+
+```jsx
+import { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+}
+```
+
+## useEffect
+
+Runs side effects (like API calls or subscriptions) after renders:
+
+```jsx
+import { useState, useEffect } from 'react';
+
+function DataFetcher({ userId }) {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    fetch(`/api/users/${userId}`)
+      .then(res => res.json())
+      .then(data => setUser(data));
+
+    return () => {
+      // Cleanup runs when component unmounts
+    };
+  }, [userId]); // Re-runs whenever userId changes
+
+  return <div>{user ? user.name : 'Loading...'}</div>;
+}
+```
+
+## Custom Hooks
+
+You can extract repeated logic into reusable custom hooks:
+
+```jsx
+function useLocalStorage(key, initialValue) {
+  const [value, setValue] = useState(() => {
+    const stored = localStorage.getItem(key);
+    return stored ? JSON.parse(stored) : initialValue;
+  });
+
+  const setStoredValue = (newValue) => {
+    setValue(newValue);
+    localStorage.setItem(key, JSON.stringify(newValue));
+  };
+
+  return [value, setStoredValue];
+}
+```
+
+Hooks make your code more readable, reusable, and easier to test!

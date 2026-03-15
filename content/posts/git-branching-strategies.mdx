@@ -1,0 +1,67 @@
+---
+title: "Understanding Git Branching Strategies"
+date: "2026-03-05T09:30:00Z"
+description: "A guide to popular Git branching strategies like Git Flow, GitHub Flow, and trunk-based development — and when to use each."
+---
+
+Choosing the right Git branching strategy for your team can dramatically improve collaboration, reduce merge conflicts, and streamline your release process.
+
+## Git Flow
+
+Git Flow is a classic model with two main long-lived branches and several types of supporting branches.
+
+**Main branches:**
+- `main` — production-ready code
+- `develop` — integration branch for features
+
+**Supporting branches:**
+- `feature/` — for new features (branch off `develop`)
+- `release/` — for release preparation
+- `hotfix/` — for urgent production fixes
+
+```bash
+# Start a new feature
+git checkout -b feature/user-auth develop
+
+# Finish the feature
+git checkout develop
+git merge --no-ff feature/user-auth
+git branch -d feature/user-auth
+```
+
+**Best for:** Teams with scheduled releases and clear versioning.
+
+## GitHub Flow
+
+A simpler model — everything branches from `main` and merges back into `main` via Pull Requests.
+
+```
+main
+ ├── feature/login-page  → PR → main
+ ├── fix/button-color    → PR → main
+ └── feature/dashboard   → PR → main
+```
+
+**Workflow:**
+1. Create a branch from `main`
+2. Make your changes
+3. Open a Pull Request
+4. Review and merge
+
+**Best for:** Teams that deploy continuously (CI/CD pipelines).
+
+## Trunk-Based Development
+
+Everyone commits directly to `main` (or short-lived branches). Feature flags control what users see.
+
+**Best for:** Experienced teams with strong automated testing and CI/CD.
+
+## Which Should You Choose?
+
+| | Git Flow | GitHub Flow | Trunk-Based |
+|---|---|---|---|
+| Release cadence | Scheduled | Continuous | Continuous |
+| Team size | Any | Small–Medium | Medium–Large |
+| Complexity | High | Low | Low |
+
+For most modern web projects, **GitHub Flow** strikes the best balance of simplicity and control.

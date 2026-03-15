@@ -1,0 +1,73 @@
+---
+title: "Building REST APIs with Node.js"
+date: "2026-03-07T11:00:00Z"
+description: "Learn how to build a clean, well-structured REST API using Node.js and Express, complete with middleware and error handling."
+---
+
+Node.js and Express make it straightforward to build REST APIs. In this guide, we'll build a simple but well-structured API from scratch.
+
+## Project Setup
+
+```bash
+mkdir my-api && cd my-api
+npm init -y
+npm install express cors helmet morgan
+npm install -D nodemon typescript @types/express
+```
+
+## Basic Server
+
+```javascript
+const express = require('express');
+const cors = require('cors');
+const helmet = require('helmet');
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Middleware
+app.use(helmet());           // Security headers
+app.use(cors());             // Enable CORS
+app.use(express.json());     // Parse JSON bodies
+
+// Routes
+app.get('/api/posts', (req, res) => {
+  res.json({ posts: [], total: 0 });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+```
+
+## Error Handling Middleware
+
+Always add a centralized error handler as the last middleware:
+
+```javascript
+app.use((err, req, res, next) => {
+  const status = err.status || 500;
+  const message = err.message || 'Internal Server Error';
+  res.status(status).json({ error: message });
+});
+```
+
+## Route Structure
+
+Organize routes into separate files for maintainability:
+
+```
+src/
+  routes/
+    posts.js
+    users.js
+  middleware/
+    auth.js
+    validation.js
+  controllers/
+    postsController.js
+  app.js
+  server.js
+```
+
+A clean API structure makes your backend easy to understand and extend!

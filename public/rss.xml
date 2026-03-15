@@ -4,7 +4,7 @@
         <title>Next.js Blog Platform</title>
         <link>http://localhost:3000</link>
         <description>A high-performance statically generated blog using MDX.</description>
-        <lastBuildDate>Sun, 15 Mar 2026 06:11:17 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 15 Mar 2026 06:46:22 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Feed for Node.js</generator>
         <language>en</language>
@@ -57,6 +57,60 @@
             <pubDate>Tue, 10 Mar 2026 11:00:00 GMT</pubDate>
             <description><![CDATA[This is my very first blog post written in MDX to test the new platform.]]></description>
             <content:encoded><![CDATA[This is my very first blog post written in MDX to test the new platform.]]></content:encoded>
+            <author>author@example.com (Author Name)</author>
+        </item>
+        <item>
+            <title><![CDATA[Getting Started with TypeScript]]></title>
+            <link>http://localhost:3000/posts/getting-started-typescript</link>
+            <guid isPermaLink="false">http://localhost:3000/posts/getting-started-typescript</guid>
+            <pubDate>Tue, 10 Mar 2026 08:00:00 GMT</pubDate>
+            <description><![CDATA[A practical introduction to TypeScript for JavaScript developers. Learn types, interfaces, and why TypeScript is worth it.]]></description>
+            <content:encoded><![CDATA[A practical introduction to TypeScript for JavaScript developers. Learn types, interfaces, and why TypeScript is worth it.]]></content:encoded>
+            <author>author@example.com (Author Name)</author>
+        </item>
+        <item>
+            <title><![CDATA[React Hooks Explained]]></title>
+            <link>http://localhost:3000/posts/react-hooks-explained</link>
+            <guid isPermaLink="false">http://localhost:3000/posts/react-hooks-explained</guid>
+            <pubDate>Mon, 09 Mar 2026 10:00:00 GMT</pubDate>
+            <description><![CDATA[Master the most important React Hooks: useState, useEffect, useContext, and custom hooks.]]></description>
+            <content:encoded><![CDATA[Master the most important React Hooks: useState, useEffect, useContext, and custom hooks.]]></content:encoded>
+            <author>author@example.com (Author Name)</author>
+        </item>
+        <item>
+            <title><![CDATA[Web Performance Optimization Tips]]></title>
+            <link>http://localhost:3000/posts/web-performance-tips</link>
+            <guid isPermaLink="false">http://localhost:3000/posts/web-performance-tips</guid>
+            <pubDate>Sun, 08 Mar 2026 09:00:00 GMT</pubDate>
+            <description><![CDATA[Practical techniques to make your website faster — from lazy loading and code splitting to image optimization and caching.]]></description>
+            <content:encoded><![CDATA[Practical techniques to make your website faster — from lazy loading and code splitting to image optimization and caching.]]></content:encoded>
+            <author>author@example.com (Author Name)</author>
+        </item>
+        <item>
+            <title><![CDATA[Building REST APIs with Node.js]]></title>
+            <link>http://localhost:3000/posts/rest-api-nodejs</link>
+            <guid isPermaLink="false">http://localhost:3000/posts/rest-api-nodejs</guid>
+            <pubDate>Sat, 07 Mar 2026 11:00:00 GMT</pubDate>
+            <description><![CDATA[Learn how to build a clean, well-structured REST API using Node.js and Express, complete with middleware and error handling.]]></description>
+            <content:encoded><![CDATA[Learn how to build a clean, well-structured REST API using Node.js and Express, complete with middleware and error handling.]]></content:encoded>
+            <author>author@example.com (Author Name)</author>
+        </item>
+        <item>
+            <title><![CDATA[CSS Grid vs Flexbox: When to Use Which]]></title>
+            <link>http://localhost:3000/posts/css-grid-vs-flexbox</link>
+            <guid isPermaLink="false">http://localhost:3000/posts/css-grid-vs-flexbox</guid>
+            <pubDate>Fri, 06 Mar 2026 14:00:00 GMT</pubDate>
+            <description><![CDATA[A clear, practical breakdown of CSS Grid and Flexbox — understand their differences and know exactly when to use each layout system.]]></description>
+            <content:encoded><![CDATA[A clear, practical breakdown of CSS Grid and Flexbox — understand their differences and know exactly when to use each layout system.]]></content:encoded>
+            <author>author@example.com (Author Name)</author>
+        </item>
+        <item>
+            <title><![CDATA[Understanding Git Branching Strategies]]></title>
+            <link>http://localhost:3000/posts/git-branching-strategies</link>
+            <guid isPermaLink="false">http://localhost:3000/posts/git-branching-strategies</guid>
+            <pubDate>Thu, 05 Mar 2026 09:30:00 GMT</pubDate>
+            <description><![CDATA[A guide to popular Git branching strategies like Git Flow, GitHub Flow, and trunk-based development — and when to use each.]]></description>
+            <content:encoded><![CDATA[A guide to popular Git branching strategies like Git Flow, GitHub Flow, and trunk-based development — and when to use each.]]></content:encoded>
             <author>author@example.com (Author Name)</author>
         </item>
     </channel>

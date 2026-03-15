@@ -1,0 +1,51 @@
+---
+title: "Web Performance Optimization Tips"
+date: "2026-03-08T09:00:00Z"
+description: "Practical techniques to make your website faster — from lazy loading and code splitting to image optimization and caching."
+---
+
+A fast website is not just about user experience — it directly impacts SEO rankings and conversion rates. Here are the most impactful performance optimizations you can apply today.
+
+## 1. Optimize Images
+
+Images are usually the largest assets on a page. Use:
+
+- **Modern formats**: WebP or AVIF instead of JPEG/PNG
+- **Responsive images**: Use `srcset` or `next/image` for automatic resizing
+- **Lazy loading**: Add `loading="lazy"` to images below the fold
+
+## 2. Code Splitting
+
+Don't send your entire JavaScript bundle on the first load. Split your code into smaller chunks:
+
+```javascript
+// Dynamic import in Next.js
+import dynamic from 'next/dynamic';
+
+const HeavyComponent = dynamic(() => import('./HeavyComponent'), {
+  loading: () => <p>Loading...</p>,
+});
+```
+
+## 3. Minimize Render-Blocking Resources
+
+Move non-critical CSS and JS to load asynchronously:
+
+```html
+<link rel="stylesheet" href="non-critical.css" media="print" onload="this.media='all'">
+<script src="analytics.js" defer></script>
+```
+
+## 4. Caching
+
+Set proper cache headers on static assets:
+
+```
+Cache-Control: public, max-age=31536000, immutable
+```
+
+## 5. Use a CDN
+
+Distribute your static assets globally to reduce latency for users far from your origin server.
+
+Applying even a few of these techniques can dramatically improve your Core Web Vitals scores!
