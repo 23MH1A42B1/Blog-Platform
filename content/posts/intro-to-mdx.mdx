@@ -1,0 +1,33 @@
+---
+title: "Introduction to MDX"
+date: "2026-03-11T14:15:00Z"
+description: "Discover the power of combining Markdown with React components using MDX."
+---
+
+MDX is an authorable format that lets you seamlessly write JSX in your Markdown documents. It's incredibly powerful for building interactive documentation or complex blog posts.
+
+## What can you do with MDX?
+
+You can import React components and use them directly alongside your Markdown text.
+
+- Write standard markdown
+- **Embed components** like charts or interactive widgets
+- Pass data to those components
+
+### A Simple Component Example
+
+Imagine you have a `<WarningCallout />` component. With MDX, you can use it like this:
+
+```mdx
+import { WarningCallout } from '../components/WarningCallout';
+
+# Be Careful!
+
+<WarningCallout>
+  This is a critical warning you should read before continuing.
+</WarningCallout>
+
+Here is some regular text below the callout.
+```
+
+MDX opens up a world of possibilities for content creators and developers alike!
