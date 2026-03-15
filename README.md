@@ -1,97 +1,269 @@
-# Next.js Blog Platform
+# 📝 Next.js Blog Platform
 
-A high-performance, statically generated blog platform built with Next.js, MDX, and Tailwind CSS. It features excellent SEO generation, automatic sitemap and RSS feeds, and dark mode support.
+A high-performance, SEO-optimized blog platform built with **Next.js**, **MDX**, and **Tailwind CSS**. Features Static Site Generation (SSG), dark/light mode, pagination, sitemap/RSS generation, and Docker containerization.
 
-## Features
+---
 
-- **Static Site Generation (SSG)**: Fast load times and optimal SEO with pre-rendered HTML.
-- **MDX Support**: Write content in Markdown and embed React components. Syntax highlighting provided out of the box.
-- **SEO Optimized**: Utilizes `next-seo` to automatically manage meta tags, Open Graph, and Twitter Cards.
-- **Sitemap & RSS**: Automatically generates `sitemap.xml` and `rss.xml` during the build process.
-- **Dark Mode**: Toggleable dark theme integrated seamlessly using `next-themes` and Tailwind CSS.
-- **Pagination**: Built-in Blog listing page supporting multiple pages limit.
-- **Dockerized**: Fully containerized environment for consistent deployment.
+## 🚀 Live Features
 
-## Tech Stack
+| Feature | Details |
+|---|---|
+| ⚡ Static Site Generation | All pages pre-rendered at build time via `getStaticProps` / `getStaticPaths` |
+| 📝 MDX Content | Write rich blog posts with Markdown + embedded React components |
+| 🎨 Dark/Light Mode | Seamless toggle with `next-themes`, persisted across sessions |
+| 🔍 SEO Optimized | Per-page meta tags, Open Graph, Twitter cards |
+| 🗺️ Sitemap & RSS | Auto-generated `sitemap.xml` and `rss.xml` at build time |
+| 📄 Pagination | Blog listing page handles 10 posts per page |
+| 🐳 Docker Ready | One-command deployment with Docker Compose |
+| 🖼️ Image Optimization | Images inside MDX rendered via `next/image` |
+| ✅ Test IDs | All key elements carry `data-testid` attributes for automated testing |
 
-- **Framework**: [Next.js](https://nextjs.org/) (Pages Router)
+---
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 16](https://nextjs.org/) — Pages Router
+- **Language**: TypeScript
 - **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
-- **Content**: [MDX](https://mdxjs.com/) via `next-mdx-remote`
-- **SEO**: `next-seo`
+- **Content**: MDX via [`next-mdx-remote`](https://github.com/hashicorp/next-mdx-remote) + `gray-matter`
+- **Theming**: [`next-themes`](https://github.com/pacocoursey/next-themes)
+- **Feeds**: [`feed`](https://github.com/jpmonette/feed) for sitemap + RSS
 - **Deployment**: Docker & Docker Compose
 
-## Getting Started
+---
 
-### Prerequisites
-- Node.js (v18+)
-- npm or yarn
+## 📁 Project Structure
 
-### Local Setup
-
-1. **Clone the repository:**
-   ```bash
-   git clone <repository-url>
-   cd blog-platform
-   ```
-
-2. **Environment Variables:**
-   Copy the example `.env` file and populate it if needed:
-   ```bash
-   cp .env.example .env.local
-   ```
-
-3. **Install Dependencies:**
-   ```bash
-   npm install
-   ```
-
-4. **Run Development Server:**
-   ```bash
-   npm run dev
-   ```
-   Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-### Docker Setup
-
-The project can be run inside a Docker container using `docker-compose`.
-
-1. Ensure the Docker daemon is running!
-2. Spin up the application using:
-   ```bash
-   docker-compose up --build -d
-   ```
-3. The frontend service will be accessible on `http://localhost:3000` assuming the health check passes successfully.
-
-## Architecture & File Structure
-
-This project uses the Next.js **Pages Router** intentionally instead of the App Router to explicitly follow straightforward implementation paradigms of SSG with `getStaticProps` and `getStaticPaths` on MDX parsing routines.
-
-```text
-├── components/          # Reusable React components (Layout, ThemeToggle, etc.)
-│   ├── MDXComponents/   # Custom UI components injected into Markdown rendering
-├── content/             # Local Markdown data storage
-│   └── posts/           # Your .mdx files containing frontmatter and body
-├── lib/                 # Utility files and data fetching operations
-│   ├── api.ts           # Interfaces with the content directory using `gray-matter`
-│   └── generate-feeds.ts# Generates sitemap and RSS files based on post data
-├── pages/               # Next.js routing and Page definitions
-│   ├── blog/            # Paginated listing implementation
-│   ├── posts/           # Dynamic routes for SSG MDX blog posts
-│   └── _app.tsx         # Custom Next.js structural initialization and Theme injection
-├── public/              # Static assets (images, fonts, auto-generated xml files)
-└── styles/              # Global Tailwind configuration (`globals.css`)
+```
+c:/pdf/GPP/Blog Platform/
+├── components/
+│   ├── Layout.tsx          # Main layout with header, footer, and nav
+│   ├── ThemeToggle.tsx     # Dark/light mode button
+│   └── MDXComponents.tsx   # Custom renderers for MDX elements
+├── content/
+│   └── posts/              # *.mdx blog post files
+│       ├── first-post.mdx
+│       ├── understanding-ssr.mdx
+│       ├── mastering-tailwind.mdx
+│       ├── intro-to-mdx.mdx
+│       └── deploying-nextjs-docker.mdx
+├── lib/
+│   ├── api.ts              # Reads and parses MDX files + frontmatter
+│   └── generate-feeds.ts   # Generates sitemap.xml and rss.xml
+├── pages/
+│   ├── _app.tsx            # Global app wrapper (ThemeProvider, Head)
+│   ├── 404.tsx             # Custom Not Found page
+│   ├── index.tsx           # Homepage - latest posts (SSG)
+│   ├── blog/
+│   │   ├── index.tsx       # Blog listing with pagination (SSG)
+│   │   └── page/[page].tsx # Paginated blog pages (SSG)
+│   └── posts/
+│       └── [slug].tsx      # Individual post page (SSG)
+├── public/
+│   ├── sitemap.xml         # Auto-generated at build time
+│   └── rss.xml             # Auto-generated at build time
+├── styles/
+│   └── globals.css         # Global Tailwind CSS configuration
+├── Dockerfile
+├── docker-compose.yml
+├── .env.example
+└── README.md
 ```
 
-### Content Management
+---
 
-Blog posts are stored as `.mdx` files in `content/posts/`. Each file requires a specific YAML frontmatter structure:
+## ⚙️ Getting Started
+
+### Prerequisites
+
+- **Node.js** v18+
+- **npm** (or yarn)
+- **Docker** (for containerized deployment)
+
+---
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/23MH1A42B1/Blog-Platform.git
+cd Blog-Platform
+```
+
+---
+
+### 2. Environment Variables
+
+Copy the example `.env` file:
+
+```bash
+cp .env.example .env.local
+```
+
+The `.env.example` contains:
+
+```env
+PORT=3000
+BASE_URL=http://localhost:3000
+```
+
+---
+
+### 3. Install Dependencies
+
+```bash
+npm install
+```
+
+---
+
+### 4. Run in Development Mode
+
+```bash
+npm run dev
+```
+
+Visit → **http://localhost:3000**
+
+Hot-reloading is enabled. Any changes to MDX files, pages, or components will immediately reflect in the browser.
+
+---
+
+### 5. Build for Production (Local)
+
+```bash
+npm run build
+npm start
+```
+
+- `npm run build` — Pre-renders all static pages and generates `sitemap.xml` + `rss.xml` in `/public`
+- `npm start` — Starts the production server
+
+Visit → **http://localhost:3000**
+
+---
+
+## 🐳 Docker Deployment
+
+### One-Command Setup
+
+```bash
+docker-compose up --build -d
+```
+
+This will:
+1. Pull Node.js 18 Alpine image
+2. Install all npm dependencies
+3. Run `npm run build` inside the container
+4. Start the production server via `npm start`
+5. expose port **3000** on your machine
+
+Visit → **http://localhost:3000**
+
+### Stop the Container
+
+```bash
+docker-compose down
+```
+
+### Docker Healthcheck
+
+The `docker-compose.yml` includes a healthcheck that curls the homepage every 30 seconds to ensure the server is running healthy.
+
+---
+
+## ✍️ Writing Blog Posts
+
+Blog posts are stored as `.mdx` files inside the `content/posts/` directory.
+
+### Frontmatter Format
+
+Every `.mdx` file must start with a YAML frontmatter block:
 
 ```yaml
 ---
-title: "Article Title"
-date: "2026-03-15T08:00:00Z"
-description: "A short excerpt used for card bodies and SEO."
+title: "Your Post Title"
+date: "2026-03-15T10:00:00Z"
+description: "A short summary used for cards and SEO meta tags."
 ---
 ```
 
-When building, Next.js calls data-fetching APIs inside `getStaticProps` on Next Router pages, generating HTML representations directly.
+### Adding Images
+
+Use standard markdown image syntax — the platform automatically renders them with `next/image`:
+
+```md
+![Alt text for image](/images/your-image.png)
+```
+
+### Adding Code Blocks
+
+Use fenced code blocks with a language identifier for syntax highlighting:
+
+````md
+```javascript
+const greet = (name) => `Hello, ${name}!`;
+console.log(greet("World"));
+```
+````
+
+---
+
+## 🌗 Dark Mode
+
+Click the **sun/moon icon** in the top-right navigation bar to toggle between dark and light mode.
+
+- The current theme is automatically saved to `localStorage`
+- On first visit, the system's OS preference (`prefers-color-scheme`) is respected
+- The `dark` class is applied directly to the `<html>` element
+
+---
+
+## 🔍 SEO
+
+- Every page has a `<title>` and `<meta name="description">`
+- Blog post pages include full **Open Graph** and **Twitter card** tags
+- A `sitemap.xml` is auto-generated at build time and accessible at `/sitemap.xml`
+- An `rss.xml` feed is available at `/rss.xml`
+
+---
+
+## 📋 data-testid Reference
+
+| Element | `data-testid` value |
+|---|---|
+| Post list container | `post-list` |
+| Individual post card | `post-card-<slug>` |
+| Read more link | `read-more-<slug>` |
+| Pagination container | `pagination` |
+| Pagination previous | `pagination-prev` |
+| Pagination next | `pagination-next` |
+| Blog post article | `blog-post` |
+| Post title `<h1>` | `post-title` |
+| Post content container | `post-content` |
+| Reading time element | `reading-time` |
+| Code block `<pre>` | `code-block` |
+| Optimized image | `optimized-image` |
+| Theme toggle button | `theme-toggle` |
+| 404 message element | `not-found-message` |
+
+---
+
+## 🏗️ Architectural Decisions
+
+### Why Pages Router over App Router?
+
+The Pages Router was chosen for its straightforward and well-documented approach to SSG using `getStaticProps` and `getStaticPaths`. This makes the static generation behavior explicit and easy to reason about for a content-driven blog.
+
+### Why local MDX files over a CMS?
+
+Local MDX files give maximum control and zero external dependencies for this evaluation. The data-fetching layer in `lib/api.ts` is intentionally abstracted so it can be swapped for a headless CMS (Contentful, Sanity, Strapi) in the future without changing the page components.
+
+### Why `next-themes`?
+
+`next-themes` handles all the edge cases of dark mode (flash of incorrect theme on load, server-side rendering compatibility, `localStorage` persistence) with zero configuration overhead.
+
+---
+
+## 📜 License
+
+MIT © Nadipena Murali
