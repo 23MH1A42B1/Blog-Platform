@@ -23,7 +23,7 @@ export default function BlogPage({ posts, totalPages, currentPage }: BlogPagePro
             className="group block p-6 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl shadow-sm hover:shadow-md transition-shadow"
           >
             <time className="text-sm font-medium text-blue-600 dark:text-blue-400 mb-2 block">
-              {new Date(post.meta.date).toLocaleDateString()}
+              {new Date(post.meta.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
             </time>
             <h2 className="text-2xl font-bold mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
               <Link href={`/posts/${post.meta.slug}`}>
