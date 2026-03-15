@@ -1,0 +1,30 @@
+---
+title: "Understanding Server-Side Rendering"
+date: "2026-03-12T10:00:00Z"
+description: "A deep dive into how Server-Side Rendering (SSR) works and when to use it over Static Site Generation (SSG)."
+---
+
+Server-Side Rendering (SSR) is a technique used in modern web development to render web pages on the server rather than in the browser.
+
+## Why SSR?
+
+- **SEO improvements:** Search engines can easily crawl the fully rendered HTML.
+- **Initial page load:** Users see the content faster because the browser receives fully formed HTML.
+- **Dynamic content:** Perfect for pages where content changes frequently data that is unique to a user.
+
+### Example in Next.js
+
+In Next.js, you can use `getServerSideProps` to fetch data on each request:
+
+```javascript
+export async function getServerSideProps(context) {
+  const res = await fetch('https://api.example.com/data');
+  const data = await res.json();
+
+  return {
+    props: { data },
+  };
+}
+```
+
+This ensures the user always gets the freshest data!
