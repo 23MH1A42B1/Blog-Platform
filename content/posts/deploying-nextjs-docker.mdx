@@ -1,0 +1,32 @@
+---
+title: "Deploying Next.js with Docker"
+date: "2026-03-15T08:00:00Z"
+description: "A step-by-step guide to containerizing your Next.js application using Docker and Docker Compose."
+---
+
+Deploying applications can be tricky, but Docker simplifies the process by packaging your application and its dependencies into a single, portable container.
+
+## Why Containerize?
+
+- **Consistency:** The app runs exactly the same way in development, testing, and production.
+- **Isolation:** Your app's dependencies don't interfere with the host system.
+- **Scalability:** Containers can be easily scaled up or down based on traffic.
+
+### The Dockerfile
+
+A typical `Dockerfile` for a Next.js app looks like this:
+
+```dockerfile
+FROM node:18-alpine
+
+WORKDIR /app
+COPY package.json package-lock.json* ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+EXPOSE 3000
+CMD ["npm", "start"]
+```
+
+Then, you can use `docker-compose` to spin it up along with any required services like a database or cache.
