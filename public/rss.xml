@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Next.js Blog Platform</title>
+        <link>http://localhost:3000</link>
+        <description>A high-performance statically generated blog using MDX.</description>
+        <lastBuildDate>Sun, 15 Mar 2026 06:11:17 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>Feed for Node.js</generator>
+        <language>en</language>
+        <image>
+            <title>Next.js Blog Platform</title>
+            <url>http://localhost:3000/logo.png</url>
+            <link>http://localhost:3000</link>
+        </image>
+        <copyright>All rights reserved 2026</copyright>
+        <item>
+            <title><![CDATA[Deploying Next.js with Docker]]></title>
+            <link>http://localhost:3000/posts/deploying-nextjs-docker</link>
+            <guid isPermaLink="false">http://localhost:3000/posts/deploying-nextjs-docker</guid>
+            <pubDate>Sun, 15 Mar 2026 08:00:00 GMT</pubDate>
+            <description><![CDATA[A step-by-step guide to containerizing your Next.js application using Docker and Docker Compose.]]></description>
+            <content:encoded><![CDATA[A step-by-step guide to containerizing your Next.js application using Docker and Docker Compose.]]></content:encoded>
+            <author>author@example.com (Author Name)</author>
+        </item>
+        <item>
+            <title><![CDATA[Mastering Tailwind CSS]]></title>
+            <link>http://localhost:3000/posts/mastering-tailwind</link>
+            <guid isPermaLink="false">http://localhost:3000/posts/mastering-tailwind</guid>
+            <pubDate>Sat, 14 Mar 2026 09:30:00 GMT</pubDate>
+            <description><![CDATA[Learn how to build modern, responsive layouts effortlessly using Tailwind CSS.]]></description>
+            <content:encoded><![CDATA[Learn how to build modern, responsive layouts effortlessly using Tailwind CSS.]]></content:encoded>
+            <author>author@example.com (Author Name)</author>
+        </item>
+        <item>
+            <title><![CDATA[Understanding Server-Side Rendering]]></title>
+            <link>http://localhost:3000/posts/understanding-ssr</link>
+            <guid isPermaLink="false">http://localhost:3000/posts/understanding-ssr</guid>
+            <pubDate>Thu, 12 Mar 2026 10:00:00 GMT</pubDate>
+            <description><![CDATA[A deep dive into how Server-Side Rendering (SSR) works and when to use it over Static Site Generation (SSG).]]></description>
+            <content:encoded><![CDATA[A deep dive into how Server-Side Rendering (SSR) works and when to use it over Static Site Generation (SSG).]]></content:encoded>
+            <author>author@example.com (Author Name)</author>
+        </item>
+        <item>
+            <title><![CDATA[Introduction to MDX]]></title>
+            <link>http://localhost:3000/posts/intro-to-mdx</link>
+            <guid isPermaLink="false">http://localhost:3000/posts/intro-to-mdx</guid>
+            <pubDate>Wed, 11 Mar 2026 14:15:00 GMT</pubDate>
+            <description><![CDATA[Discover the power of combining Markdown with React components using MDX.]]></description>
+            <content:encoded><![CDATA[Discover the power of combining Markdown with React components using MDX.]]></content:encoded>
+            <author>author@example.com (Author Name)</author>
+        </item>
+        <item>
+            <title><![CDATA[My First Blog Post]]></title>
+            <link>http://localhost:3000/posts/first-post</link>
+            <guid isPermaLink="false">http://localhost:3000/posts/first-post</guid>
+            <pubDate>Tue, 10 Mar 2026 11:00:00 GMT</pubDate>
+            <description><![CDATA[This is my very first blog post written in MDX to test the new platform.]]></description>
+            <content:encoded><![CDATA[This is my very first blog post written in MDX to test the new platform.]]></content:encoded>
+            <author>author@example.com (Author Name)</author>
+        </item>
+    </channel>
+</rss>
